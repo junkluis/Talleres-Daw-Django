@@ -1,0 +1,1 @@
+django-admin --version			Revisar Version de django
