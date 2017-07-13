@@ -96,4 +96,4 @@ def bienvenida(request):
             'email':request.POST.get('email',None),
             'password':request.POST.get('pwd',None)
         }
-    return render()
+    return HttpResponse(template.render(context, request))
