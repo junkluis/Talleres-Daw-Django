@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <div style="width: 800px; margin: 20px">
+        <h1>Ingresar Perfil(POST AJAX)</h1>
+        <form id="perfil">{% csrf_token %}
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" name="remember"> Remember me</label>
+            </div>
+            <!--button type="submit" class="btn btn-default">Submit</button-->
+            <input type="submit" class="mdl-button" value="SUBMIT">
+        </form>
+
+    </div>
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script>
+        $(document).on('submit','#perfil',function(e){
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "../bienvenida/",
+                data: {
+                    'email': $('#email').val(),
+                    'password': $('#pwd').val(),
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
+                },
+                success: function(){
+                    alert("Exitoso");
+                }
+            });
+        });
+</script>
+</body>
+</html>
+

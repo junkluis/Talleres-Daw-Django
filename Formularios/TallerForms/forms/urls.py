@@ -7,4 +7,6 @@ urlpatterns = [
     url(r'^agregar/$', views.agregarPlatillo, name='agregarPlatillo'),
     url(r'^miPerfil/$', views.miPerfil, name='miPerfil'),
     url(r'^platillos/$', views.platilloAgregado, name='platilloAgregado'),
+    url(r'^login/$', views.login, name='login'),
+    url(r'^bienvenida/$', views.bienvenida, name='bienvenida'),
 ]
