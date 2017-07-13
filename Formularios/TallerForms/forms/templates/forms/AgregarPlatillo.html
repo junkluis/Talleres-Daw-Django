@@ -13,11 +13,11 @@
 <form action="/forms/platillos/" method="POST">{% csrf_token %}
     <div class="form-group">
       <label>Nombre del Platillo:</label>
-      <input type="text" class="form-control" placeholder="Arroz con pollo" name="nombreP">
+      <input type="text" class="form-control" placeholder="Arroz con pollo" name="nombreP" required="required">
     </div>
     <div class="form-group">
       <label>Descripcion:</label>
-      <textarea class="form-control" rows="3" name="descripcion"></textarea>
+      <textarea class="form-control" rows="3" name="descripcion" required="required"></textarea>
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="nutri">Habilitar cuadro nutricional?</label>
@@ -33,7 +33,7 @@
       <label><input type="radio" name="tipo" value="3">Plato a la carta</label>
     </div>
 
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default">Guardar</button>
   </form>
 
 </div>

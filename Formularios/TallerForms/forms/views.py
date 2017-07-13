@@ -14,21 +14,19 @@ def index(request):
 
 def agregarPlatillo(request):
     template = loader.get_template('forms/AgregarPlatillo.html')
-    test = 'prueba'
-    context = {
-        'text': test,
-    }
+    context = {}
     return HttpResponse(template.render(context, request))
 
 
 def editarPerfil(request):
-    return HttpResponse('holis2')
+    template = loader.get_template('forms/Editar.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 
 
 def platilloAgregado(request):
     template = loader.get_template('forms/platillos.html')
-    test = 'prueba'
     if request.method == 'POST':
         nombre = request.POST.get("nombreP","")
         desc = request.POST.get("descripcion", "")
@@ -60,4 +58,22 @@ def platilloAgregado(request):
 
 
 def miPerfil(request):
-    return HttpResponse('holis4')
+    template = loader.get_template('forms/miPerfil.html')
+    if request.method == 'GET':
+        nombreCo = request.GET.get("comedorT", "")
+        biblio = request.GET.get("bibliografia", "")
+        tipo = request.GET.get("tipoL", "")
+        ayu = request.GET.get("ayud", "")
+        ayudantes = ''
+        if (ayu == 'on'):
+            ayudantes = 'Se aceptan ayudantes'
+        else:
+            ayudantes = 'No se aceptan ayudantes'
+
+    context = {
+        'nombreCo': nombreCo,
+        'biblio': biblio,
+        'tipo': tipo,
+        'ayu': ayudantes,
+    }
+    return HttpResponse(template.render(context, request))

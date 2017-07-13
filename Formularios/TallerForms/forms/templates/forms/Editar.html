@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div style="width: 800px; margin: 20px">
-<h1>Editar Perfil(GET)</h1>
-<form action="/action_page.php" method="GET">
+<div style="width: 700px; margin: 20px">
+<h1>Editar mi perfil (GET)</h1>
+<form action="/forms/miPerfil/" method="GET">{% csrf_token %}
     <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <label>Nombre del comedor:</label>
+      <input type="text" class="form-control" placeholder="Comedor Neo" name="comedorT" required="required">
     </div>
     <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      <label>Bibliografia:</label>
+      <textarea class="form-control" rows="3" name="bibliografia" required="required"></textarea>
+    </div>
+     <div class="form-group">
+      <label >Seleccionar tipo de comedor:</label>
+      <select class="form-control" name="tipoL">
+        <option>Tiempo Completo</option>
+        <option>Kiosko</option>
+        <option>Restaurante</option>
+        <option>Tienda</option>
+      </select>
     </div>
     <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Remember me</label>
+      <label><input type="checkbox" name="ayud">Aceptar Ayudantes</label>
     </div>
+
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 
